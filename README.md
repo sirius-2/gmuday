@@ -5,7 +5,7 @@ ruby 语言编写的赣南某学院课表解析工具(Published)
 首先使用`sudo gem install gmuday -s https://rubygems.org/`安装此库
 ```
 require 'gmuday'
-GmuDay.course("example.xlsx", ["19 xx [1-2]班", "19 xx [3-4]班",],["19 xx [1-2]班",] 1, 7)
+GmuDay.course("example.xlsx", ["19 xx [1-2]班", "19 xx [3-4]班",],["19 xx [1-2]班",], 1, 7)
 ```
 参数解析：  
 `arg0`：课表路径，可能支持url  
