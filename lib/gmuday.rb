@@ -35,7 +35,7 @@ module GmuDay
          return false
       end
    end
-   protected:addOrNot
+
    def self.course(_file, _myclass, hi_class=[], _day_start, _day_end)
        lessons = self.parse(_file, _myclass, _day_start, _day_end)
 
