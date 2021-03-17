@@ -1,8 +1,8 @@
 # gmuday
-ruby 语言编写的赣南某学院课表解析工具
+ruby 语言编写的赣南某学院课表解析工具(Published)
 
 ## 用法
-首先使用`sudo gem install gmuday-0.1.2.gem`安装此库
+首先使用`sudo gem install gmuday -s https://rubygems.org/`安装此库
 ```
 require 'gmuday'
 GmuDay.course("example.xlsx", ["19 xx [1-2]班", "19 xx [3-4]班",],["19 xx [1-2]班",] 1, 7)
