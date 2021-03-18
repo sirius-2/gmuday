@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
     spec.summary      = "GmuDay"
     spec.description  = "GMU course helper"
     spec.authors      = ["Sirius2",]
-    spec.email        = "xjy37-me@outlook.com"
+    spec.email        = "xjy37.me@outlook.com"
     spec.require_path = "lib"
     spec.files        = ["lib/gmuday.rb",]
     spec.homepage     = "https://gitee.com/Sirius2/gmuday"
