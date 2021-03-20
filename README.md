@@ -37,4 +37,5 @@ GmuDay.course("example.xlsx", ["19 xx [1-2]班", "19 xx [3-4]班",],["19 xx [1-2
 + ruby2d
 + creek
 
-> 如果你想要gem支持你的学校，请修改lib中对应数组 Index['']
+> 如果你想要gem支持你的学校，请修改lib中对应数组 Index['']  
+> 本来想做成macOS、windows、iOS跨平台应用，但是ruby2d编译的时候遇到一个issue，网络提交不上，暂时先这样
