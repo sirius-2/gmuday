@@ -1,7 +1,6 @@
 # 案例
 示例`app.rb`
 ```
-require 'ruby2d'
 require 'gmuday'
 
 today_a = GmuDay.getToday

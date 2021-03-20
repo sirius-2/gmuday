@@ -4,7 +4,6 @@ ruby 语言编写的赣南某学院课表解析工具(Published)
 ## 用法
 首先使用`sudo gem install gmuday -s https://rubygems.org/`安装此库
 ```
-require 'ruby2d'
 require 'gmuday'
 
 set title: 'apptitle', background: 'navy', width: 1050, height: 300
@@ -38,4 +37,4 @@ GmuDay.course("example.xlsx", ["19 xx [1-2]班", "19 xx [3-4]班",],["19 xx [1-2
 + ruby2d
 + creek
 
-> 如果你想要gem支持你的学校，请修改lib中`A、G或H`等以对应行与列
+> 如果你想要gem支持你的学校，请修改lib中对应数组 Index['']
