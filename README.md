@@ -7,7 +7,7 @@ ruby 语言编写的赣南某学院课表解析工具(Published)
 require 'ruby2d'
 require 'gmuday'
 
-set title: apptitle, background: 'navy', width: 1050, height: 300
+set title: 'apptitle', background: 'navy', width: 1050, height: 300
 
 GmuDay.show("example.xlsx", 0, "19 xx [1-2]班")
 ```
