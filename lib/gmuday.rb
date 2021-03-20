@@ -3,6 +3,7 @@
 #
 
 require 'creek'
+require 'ruby2d'
 
 module GmuDay
 

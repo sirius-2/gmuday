@@ -17,4 +17,5 @@ Gem::Specification.new do |spec|
     spec.license      = "GPL-3.0+"
 
     spec.add_development_dependency "creek","~>5.2.0"
+    spec.add_development_dependency "ruby2d","~>0.9.5"
 end
