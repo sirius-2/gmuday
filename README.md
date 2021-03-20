@@ -8,8 +8,9 @@ require 'ruby2d'
 require 'gmuday'
 
 set title: 'apptitle', background: 'navy', width: 1050, height: 300
-
 GmuDay.show("example.xlsx", 0, "19 xx [1-2]班")
+
+show
 ```
 三个参数分别表示*课表文件*,  *本周*，*班级*。看下周课表，第二个参数为1；看上周课表，则为-1。以此类推
 ![周课表](./example/course.png)，如果你想增加点击查看上课地点， [请看这里](example/README.md)
