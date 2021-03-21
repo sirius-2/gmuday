@@ -40,7 +40,7 @@ show
 扩展示例 *参数传递*`app.rb`
 ```
 # 增加myArg()方法获取终端参数
-def getArg()
+def myArg()
 g_arr = Array.new
 g_arr = ARGV
 g_ok = g_arr[0].to_i
