@@ -151,8 +151,7 @@ module GmuDay
        info = Array.new
 
        $courses.each do |course|
-           ele = self.parse_week(course)
-           info << ele
+            info << self.parse_week(course)
        end
        info.each do |o|
            ol = o[1]
@@ -167,6 +166,7 @@ module GmuDay
    def self.calWeek(i)
        t = Time.new
        tWeek = t.wday
+       tWeek = 7 if tWeek == 0
        last = -1 * (tWeek - 1) + i * 7
        future = 7 - tWeek + i * 7
        return [tWeek, last, future]

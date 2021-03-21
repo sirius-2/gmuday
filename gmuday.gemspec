@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
     spec.name         = "gmuday"
     spec.version      = GmuDay::VERSION
     spec.summary      = "GmuDay"
-    spec.description  = "GMU course helper"
+    spec.description  = "Show GMU courses of someday or someweek"
     spec.authors      = ["Sirius2",]
     spec.email        = "xjy37.me@outlook.com"
     spec.require_path = "lib"
