@@ -142,7 +142,7 @@ module GmuDay
        gmu_arr = self.calWeek(_whichWeek)
        return self.parse(_file, _cl, gmu_arr[1], gmu_arr[2])
    end
-   def self.show(file, whichWeek, cl)
+   def self.show(file, whichWeek, cl, init_type=nil)
        self.top()
        week = Array(0..6)
        $courses = self.getWeekCourse(file, whichWeek, cl)
@@ -156,7 +156,7 @@ module GmuDay
        info.each do |o|
            ol = o[1]
            ol.each do |l|
-               l_raw = o[2]
+               l_raw = init_type == "w" ? o[3] : o[2]
                l_show = l_raw.length > 10 ? l_raw[0,10] : l_raw
                self.buildBlock((o[0] -1)*150, l*50, 150, 50, 1, l_show.center(20), (o[0] -1)*150, 50/3 + l*50, 12, 2)
            end
