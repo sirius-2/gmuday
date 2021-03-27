@@ -155,9 +155,9 @@ module GmuDay
        end
        info.each do |o|
            ol = o[1]
+           l_raw = init_type == "w" ? o[3] : o[2]
+           l_show = l_raw.length > 10 ? l_raw[0,10] : l_raw
            ol.each do |l|
-               l_raw = init_type == "w" ? o[3] : o[2]
-               l_show = l_raw.length > 10 ? l_raw[0,10] : l_raw
                self.buildBlock((o[0] -1)*150, l*50, 150, 50, 1, l_show.center(20), (o[0] -1)*150, 50/3 + l*50, 12, 2)
            end
        end
