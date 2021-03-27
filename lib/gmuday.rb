@@ -182,6 +182,10 @@ module GmuDay
        t_raw = arr[2]
        t = self.tSplit(t_raw)
        wh = course['H']
+       if wh.include?('实验室')
+           wh.gsub!('实验室','')
+           wh.gsub!(/（|）/, '')
+       end
        return [w, t, lesson, wh]
    end
    def self.tSplit(str)
