@@ -16,28 +16,37 @@ show
 
 ![周课表](./example/course.png)，如果你想增加点击查看上课地点， [请看这里](example/README.md)
 
-### GmuDay.parse
+<details>
+<h3></a>GmuDay.parse</h3>
 返回包含某些天课表的数组(Array)
 ```
 GmuDay.parse("example.xlsx", "19 xx [1-2]班”, 1, 7)
 ```
 > 解析不用高亮输出，参数为四个
 
-### GmuDay.course
+<h3><a>GmuDay.course</a></h3>
 命令格式化打印课表，参数如下
-```
+<pre>
 GmuDay.course("example.xlsx", ["19 xx [1-2]班", "19 xx [3-4]班",],["19 xx [1-2]班",], 1, 7)
-```
-参数解析：  
-`arg0`：课表路径，可能支持url  
-`arg1`: 班级名称。介绍与下方类似  
-`arg2`: 高亮输出指定班级课程，未指定则为普通色。指定多个班级用`Array`，单个班级`String`或`Array`  
-`arg3 、arg4`： `0,0`表示当前一天，` 1,1`表示明天，`-1,3`表示过去一天到未来三天，`1,7`表示明天开始的未来7天，以此类推  
-![案例](./example/cli.png)
+</pre>
+参数解析：  </br>
+<code>arg0</code>：课表路径，可能支持url  </br>
+<code>arg1</code>: 班级名称。介绍与下方类似  </br>
+<code>arg2</code>: 高亮输出指定班级课程，未指定则为普通色。指定多个班级用<code>Array</code>，单个班级<code>String</code>或<code>Array</code> </br>
+<code>arg3 、arg4</code>： 0,0表示当前一天， 1,1表示明天，-1,3表示过去一天到未来三天，1,7表示明天开始的未来7天，以此类推  
+<img src="./example/cli.png" alt="案例" style="max-width:100%;">
+</details>
+
+<details>
+<summary>使用提供的模板</summary>
+<pre>
+require 'gmuday'
+GmuDay.wood()
+</pre>
+即可轻松显示课表
+</details>
 
 # Requirements
 + ruby2d
 + creek
-
-> 如果你想要gem支持你的学校，请修改lib中对应数组 Index['']  
-> 本来想做成macOS、windows、iOS跨平台应用，但是ruby2d编译的时候遇到一个issue，网络提交不上，暂时先这样
++ os
