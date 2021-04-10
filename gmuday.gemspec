@@ -12,10 +12,11 @@ Gem::Specification.new do |spec|
     spec.authors      = ["Sirius2",]
     spec.email        = "xjy37.me@outlook.com"
     spec.require_path = "lib"
-    spec.files        = ["lib/gmuday.rb",]
+    spec.files        = ["lib/gmuday.rb", 'ext/test.xlsx']
     spec.homepage     = "https://gitee.com/Sirius2/gmuday"
     spec.license      = "GPL-3.0+"
 
     spec.add_development_dependency "creek","~>5.2.0"
     spec.add_development_dependency "ruby2d","~>0.9.5"
+    spec.add_development_dependency "os","~>1.1.1"
 end

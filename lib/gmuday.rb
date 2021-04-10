@@ -201,7 +201,7 @@ module GmuDay
    def self.walkAround(arg1, arg2)
     exampleStr = <<-RAVEN
     # encoding: utf-8
-    require_relative 'gmuday/lib/gmuday'
+    require 'gmuday'
     
     tArr = GmuDay.calWeek(1)
     apptitle = "开始于 [ %s ]   本周课表" % GmuDay.calDay(tArr[1])
