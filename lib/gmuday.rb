@@ -130,7 +130,7 @@ module GmuDay
    def self.show(whichWeek, cl, init_type=nil)
        fontName = 'C:\Windows\Fonts\simhei.ttf'
        $fontFile = File::exists?(fontName) ? fontName : nil
-       file = File::expand_path("#{__FILE__}../../../ext/test.xlsx")
+       file = File::expand_path("#{__FILE__}../../../ext/simple.xlsx")
        self.top()
        week = Array(0..6)
        $courses = self.getWeekCourse(file, whichWeek, cl)

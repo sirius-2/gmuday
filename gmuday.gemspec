@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
     spec.authors      = ["Sirius2",]
     spec.email        = "xjy37.me@outlook.com"
     spec.require_path = "lib"
-    spec.files        = ["lib/gmuday.rb", 'ext/test.xlsx']
+    spec.files        = ["lib/gmuday.rb", 'ext/simple.xlsx']
     spec.homepage     = "https://gitee.com/Sirius2/gmuday"
     spec.license      = "GPL-3.0+"
 
