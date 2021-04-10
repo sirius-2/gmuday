@@ -1,9 +1,9 @@
 #/usr/bin/ruby
-# -*- coding: utf-8 -*-
-#
+# encoding: utf-8
 
 require 'creek'
 require 'ruby2d'
+require 'os'
 
 module GmuDay
 
@@ -36,21 +36,6 @@ module GmuDay
       else
          return false
       end
-   end
-
-   def self.course(_file, _myclass, hi_class=[], _day_start, _day_end)
-       lessons = self.parse(_file, _myclass, _day_start, _day_end)
-
-       puts "#{'节数'.rjust(28)} #{'课程'.rjust(13)} #{'班级'.rjust(34)} #{'教室'.rjust(12)}"
-       lessons.each do |lesson|
-           spl = self.weekNum("#{lesson['C']}")
-           _lesson_raw = "#{lesson['F']}"
-           _lesson = _lesson_raw.gsub(/\s+/, '')
-           _class = "#{lesson['G']}"
-           _classroom = lesson['H']
-           msg = "[ #{lesson['A']} ]   #{spl[1]}   #{spl[2].ljust(9)} #{_lesson.ljust(20, "一")} #{_class.ljust(12)} #{_classroom.ljust(16)}"
-           puts classInc(hi_class, _class) ? "\033[1;32m%s\033[0m" % msg : msg
-       end
    end
    def self.classInc(_hi_class, _class)
        if _hi_class.is_a? Array
@@ -121,7 +106,6 @@ module GmuDay
        week.each do |w|
           self.buildBlock(w*150, 0, 150, 50, 1, GmuDay.week(w+1), 150/3 + w*150, 50/3, 13, 2)
        end
-
    end
    def self.buildBlock(rx, ry, rw, rh, ri, tc, tx, ty, ts, ti)
        Rectangle.new(
@@ -133,8 +117,9 @@ module GmuDay
        Text.new(
          tc,
          x: tx, y: ty,
+         font: 'C:\Windows\Fonts\simhei.ttf',
          size: ts,
-         color: 'white',
+         color: '#FCFCFC',
          z: ti
        )
    end
@@ -142,7 +127,8 @@ module GmuDay
        gmu_arr = self.calWeek(_whichWeek)
        return self.parse(_file, _cl, gmu_arr[1], gmu_arr[2])
    end
-   def self.show(file, whichWeek, cl, init_type=nil)
+   def self.show(whichWeek, cl, init_type=nil)
+       file = File::expand_path("#{__FILE__}../../../ext/test.xlsx")
        self.top()
        week = Array(0..6)
        $courses = self.getWeekCourse(file, whichWeek, cl)
@@ -158,7 +144,7 @@ module GmuDay
            l_raw = init_type == "w" ? o[3] : o[2]
            l_show = l_raw.length > 10 ? l_raw[0,10] : l_raw
            ol.each do |l|
-               self.buildBlock((o[0] -1)*150, l*50, 150, 50, 1, l_show.center(20), (o[0] -1)*150, 50/3 + l*50, 12, 2)
+               self.buildBlock((o[0] -1)*150, l*50, 150, 50, 1, l_show.center(16), (o[0] -1)*150, 50/3 + l*50, 12, 2)
            end
        end
    end
@@ -177,7 +163,7 @@ module GmuDay
        #返回星期，课序，课程，地点。如1, [1,2], 课程, 地点
        _t =  course['C']
        lesson = course['D']
-       arr = GmuDay.weekNum(_t)
+       arr = self.weekNum(_t)
        w = arr[0]
        t_raw = arr[2]
        t = self.tSplit(t_raw)
@@ -210,6 +196,71 @@ module GmuDay
   def self.flush(a, b, ele, m_down)
       t_raw = m_down % 2 == 0 ? ele[3] : ele[2]
       t_show = t_raw.length > 10 ? t_raw[0,10] : t_raw
-      self.buildBlock((a -1)*150, b*50, 150, 50, 3 + m_down, t_show.center(20), (a -1)*150, 50/3 + b*50, 12, 4 + m_down)
+      self.buildBlock((a -1)*150, b*50, 150, 50, 3 + m_down, t_show.center(16), (a -1)*150, 50/3 + b*50, 12, 4 + m_down)
+   end
+   def self.walkAround(arg1, arg2)
+    exampleStr = <<-RAVEN
+    # encoding: utf-8
+    require_relative 'gmuday/lib/gmuday'
+    
+    tArr = GmuDay.calWeek(1)
+    apptitle = "开始于 [ %s ]   本周课表" % GmuDay.calDay(tArr[1])
+    
+    # 150*7 = 1050
+    set title: apptitle, background: 'navy', width: 1050, height: 300
+    
+    GmuDay.show(0, "89defadgehg")
+    m_down = 0
+    on :mouse_down do |event|
+      # x and y coordinates of the mouse button event
+        mx = event.x
+        my = event.y
+        
+        course_arg0 = mx/150 +1
+        course_arg1 = my/50
+        $courses.each do |course|
+            ele = GmuDay.parse_week(course)
+            if GmuDay.fOrNot(course_arg0, course_arg1, ele)
+                GmuDay.flush(course_arg0, course_arg1, ele, m_down)
+                break
+            end
+        end
+        m_down += 1
+    end
+    show
+      RAVEN
+      require 'base64_string'
+      # 我走来走去，你可能会骂我苟，但班级确实应自己写^~^
+      myArr = arg2 + arg1
+      myArr.reverse!
+      myArr.uniq!
+      str = 'xKnmTLu'
+      str.reverse!
+      myArr.insert(1, str)
+      walkAgain = myArr.to_s
+      walkArg = walkAgain.decode64
+      walkSong = String.new
+      walkSong = walkArg.force_encoding("gb2312").force_encoding("utf-8")
+      returnWalk = exampleStr.gsub('89defadgehg', walkSong)
+      returnWalk = returnWalk.reverse
+      return returnWalk
+   end
+   def self.wood()
+
+      exampleContent = self.walkAround(['bNy04X', 'MTfk'], ['eeP', 'MTfk', 'rQ==', 'eeP',])
+      exampleFileName = 'example.rb'
+      appFile = File.new(exampleFileName, 'w')
+      begin
+        appFile.syswrite(exampleContent.reverse) if appFile
+        system("ruby #{exampleFileName}")
+      ensure
+        appFile.close
+        if OS.windows?
+            system("del #{exampleFileName}") 
+        else
+            appFile.chmod(777)
+            File.delete(exampleFileName)
+        end
+      end
    end
 end
