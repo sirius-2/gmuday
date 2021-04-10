@@ -17,6 +17,7 @@ show
 ![周课表](./example/course.png)，如果你想增加点击查看上课地点， [请看这里](example/README.md)
 
 <details>
+<summary>高级用法</summary>
 <h3></a>GmuDay.parse</h3>
 返回包含某些天课表的数组(Array)
 ```
