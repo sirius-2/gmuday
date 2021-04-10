@@ -117,7 +117,7 @@ module GmuDay
        Text.new(
          tc,
          x: tx, y: ty,
-         font: 'C:\Windows\Fonts\simhei.ttf',
+         font: $fontFile,
          size: ts,
          color: '#FCFCFC',
          z: ti
@@ -128,6 +128,8 @@ module GmuDay
        return self.parse(_file, _cl, gmu_arr[1], gmu_arr[2])
    end
    def self.show(whichWeek, cl, init_type=nil)
+       fontName = 'C:\Windows\Fonts\simhei.ttf'
+       $fontFile = File::exists?(fontName) ? fontName : nil
        file = File::expand_path("#{__FILE__}../../../ext/test.xlsx")
        self.top()
        week = Array(0..6)
