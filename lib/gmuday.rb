@@ -200,24 +200,21 @@ module GmuDay
       t_show = t_raw.length > 10 ? t_raw[0,10] : t_raw
       self.buildBlock((a -1)*150, b*50, 150, 50, 3 + m_down, t_show.center(16), (a -1)*150, 50/3 + b*50, 12, 4 + m_down)
    end
-   def self.walkAround(arg1, arg2)
+   def self.walkAround(arg1, arg2, init_num)
     exampleStr = <<-RAVEN
     # encoding: utf-8
     require 'gmuday'
-    
+
     tArr = GmuDay.calWeek(1)
     apptitle = "开始于 [ %s ]   本周课表" % GmuDay.calDay(tArr[1])
-    
+
     # 150*7 = 1050
     set title: apptitle, background: 'navy', width: 1050, height: 300
-    
-    GmuDay.show(0, "89defadgehg")
+    GmuDay.show(1, "89defadgehg")
     m_down = 0
     on :mouse_down do |event|
-      # x and y coordinates of the mouse button event
         mx = event.x
         my = event.y
-        
         course_arg0 = mx/150 +1
         course_arg1 = my/50
         $courses.each do |course|
@@ -244,12 +241,13 @@ module GmuDay
       walkSong = String.new
       walkSong = walkArg.force_encoding("gb2312").force_encoding("utf-8")
       returnWalk = exampleStr.gsub('89defadgehg', walkSong)
+      returnWalk.gsub!('(1', "(#{init_num}")
       returnWalk = returnWalk.reverse
       return returnWalk
    end
-   def self.wood()
+   def self.wood(init_num=0)
 
-      exampleContent = self.walkAround(['bNy04X', 'MTfk'], ['eeP', 'MTfk', 'rQ==', 'eeP',])
+      exampleContent = self.walkAround(['bNy04X', 'MTfk'], ['eeP', 'MTfk', 'rQ==', 'eeP',], init_num)
       exampleFileName = 'example.rb'
       appFile = File.new(exampleFileName, 'w')
       begin
