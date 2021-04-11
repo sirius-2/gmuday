@@ -44,7 +44,7 @@ GmuDay.course("example.xlsx", ["19 xx [1-2]班", "19 xx [3-4]班",],["19 xx [1-2
 require 'gmuday'
 GmuDay.wood()
 </pre>
-即可轻松显示课表
+即可轻松显示课表。可使用0表示本周课表，下周为1
 </details>
 
 # Requirements
