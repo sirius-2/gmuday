@@ -50,4 +50,5 @@ GmuDay.wood()
 # Requirements
 + ruby2d
 + creek
++ base64_string
 + os

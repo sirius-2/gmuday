@@ -18,5 +18,6 @@ Gem::Specification.new do |spec|
 
     spec.add_development_dependency "creek","~>5.2.0"
     spec.add_development_dependency "ruby2d","~>0.9.5"
+    spec.add_development_dependency "base64_string", "~>0.0.2"
     spec.add_development_dependency "os","~>1.1.1"
 end
