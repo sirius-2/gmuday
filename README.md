@@ -1,5 +1,5 @@
 # gmuday
-> [中文](./README.md) | [English](README_en.md) ruby 语言编写的赣南某学院课表解析工具(Published)
+ruby 语言编写的赣南某学院课表解析工具(Published)
 
 ## 用法
 首先使用`sudo gem install gmuday-0.2.0.gem`安装此库
@@ -50,4 +50,4 @@ GmuDay.course("example.xlsx", ["19 xx [1-2]班", "19 xx [3-4]班",],["19 xx [1-2
 + base64_string
 + os
 
->  **测试通过** 由于未知的问题不能得到Windows下可执行文件，该版本可能后续不会推出
+>  **测试通过** 
