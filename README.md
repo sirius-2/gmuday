@@ -2,7 +2,7 @@
 > [中文](./README.md) | [English](README_en.md) ruby 语言编写的赣南某学院课表解析工具(Published)
 
 ## 用法
-首先使用`sudo gem install gmuday -s https://rubygems.org/`安装此库
+首先使用`sudo gem install gmuday-0.2.0.gem`安装此库
 ```
 require 'gmuday'
 GmuDay.wind()
