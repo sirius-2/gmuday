@@ -30,18 +30,6 @@ show
 GmuDay.parse("example.xlsx", "19 xx [1-2]班”, 1, 7)
 </pre>
 解析不用高亮输出，参数为四个
-
-<h3><a>GmuDay.course</a></h3>
-命令格式化打印课表，参数如下
-<pre>
-GmuDay.course("example.xlsx", ["19 xx [1-2]班", "19 xx [3-4]班",],["19 xx [1-2]班",], 1, 7)
-</pre>
-参数解析：  </br>
-<code>arg0</code>：课表路径，可能支持url  </br>
-<code>arg1</code>: 班级名称。介绍与下方类似  </br>
-<code>arg2</code>: 高亮输出指定班级课程，未指定则为普通色。指定多个班级用<code>Array</code>，单个班级<code>String</code>或<code>Array</code> </br>
-<code>arg3 、arg4</code>： 0,0表示当前一天， 1,1表示明天，-1,3表示过去一天到未来三天，1,7表示明天开始的未来7天，以此类推  
-<img src="./example/cli.png" alt="案例" style="max-width:100%;">
 </details>
 
 # Requirements
