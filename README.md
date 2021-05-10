@@ -37,5 +37,10 @@ GmuDay.parse("example.xlsx", "19 xx [1-2]班”, 1, 7)
 + creek
 + base64_string
 + os
-
->  **测试通过** 
+<details>
+<summary>更多</summary>
+<pre>
+# Ubuntu
+sudo apt-get install ruby-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+</pre>
+</details>
